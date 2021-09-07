@@ -144,13 +144,8 @@ export default {
                     expiresAt: Date.now() + (tokenData.expires_in * 1000),
                     value: tokenData.access_token
                 });
-                fetchApplication(this.$store.state.clientID, this.$store.state.diswhoToken).then((application) => {
-                    this.$toast.success(`Successfully logged in as ${application.username}!`, {
-                        duration: 10000,
-                        pauseOnHover: true
-                    });
-                    this.$router.push('/');
-                });
+                // TODO: Keep same behavior (Returning Username?)
+                this.$router.push('/');
                 this.loading = false;
                 this.$root.loadCommands();
             }).catch(() => {
